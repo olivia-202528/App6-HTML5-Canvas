@@ -81,11 +81,16 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>App6---HTML5-Canvas</h1>
 </div>
-	
+
+/*the following was added to create the buttons and give instructions to them*/
 <div id="content" class="w3-container">
 	<canvas id="myCanvas" width="300" height="300"></canvas>
-	<div class="button onclick
-	<p>Content goes here.</p>
+	<div class="button-container">
+		<button onclick="drawRectangle()">Draw Rectangle</button>
+		<button onclick="drawName()">Draw Name</button>
+		<button onclick="drawImage()">Load Image</button>
+		<button onclick="clearCanvas()">Clear Canvas</button>
+	</div>
 		
 	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
@@ -94,6 +99,32 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
-
+/*The following code was created to explain how to complete the actions of drawing and filling in*/
+<script>
+	var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        
+        function drawRectangle() {
+            ctx.fillStyle = "blue";
+            ctx.fillRect(50, 50, 200, 100);
+        }
+        
+        function drawName() {
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "red";
+            ctx.fillText("Your Name", 100, 150);
+        }
+        
+        function drawImage() {
+            var img = new Image();
+            img.src = "https://directory.cns.utexas.edu/sites/default/files/2022-12/Tim%20Riedel.jpg"; 
+            img.onload = function() {
+                ctx.drawImage(img, 75, 75, 150, 150);
+            }
+        }
+        
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }</script>
 </body>
 </html>
